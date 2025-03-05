@@ -31,8 +31,10 @@ export async function handleGrokRequest (req) {
     // 从请求的cookie中读取grok_cookie
     let grokCookie = '';
     const cookieHeader = req.headers.get('cookie');
+    console.log('cookieHeader:', cookieHeader);
     if (cookieHeader) {
         const cookies = cookieHeader.split(';');
+        console.log('cookies:', cookies);
         for (const cookie of cookies) {
         const [name, value] = cookie.trim().split('=');
         if (name === 'grok_cookie') {
@@ -41,7 +43,7 @@ export async function handleGrokRequest (req) {
         }
         }
     }
-
+    console.log('grokCookie:', grokCookie);
     //实际用这个cookie请求grok
     headers.set("cookie", grokCookie || '');
     headers.delete("Referer");
