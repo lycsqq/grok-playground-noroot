@@ -7,7 +7,8 @@
     // 处理主页面
     const filePath = url.pathname;
     console.log('filePath:', filePath);
-    if (filePath === '/' || filePath === '/index.html') {
+    // if (filePath === '/' || filePath === '/index.html') {
+    if (filePath === '/index.html') {
         return context.rewrite('/static/index.html');
     }
     if ( filePath === '/how_to_get_cookie.png') {
